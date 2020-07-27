@@ -13,6 +13,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import style from './overtime.style';
 import * as Resources from '../../config/resource';
 import {FlatList} from 'react-native-gesture-handler';
+import {useIsFocused} from '@react-navigation/native';
 
 const wait = (timeout) => {
     return new Promise(resolve => {
@@ -25,6 +26,7 @@ function Medical({ navigation }) {
 
     })
     const [refreshing, setRefreshing] = useState(false);
+    const isFocused = useIsFocused();
     const [selectedValue, setSelectedValue] = useState("All");
       const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -36,7 +38,7 @@ function Medical({ navigation }) {
 
       useEffect(() => {
           getOvertimeList();
-      }, []);
+      }, [isFocused]);
 
       const getOvertimeList = () => {
           Resources.getOvertimeList()

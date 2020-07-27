@@ -1,11 +1,13 @@
-import { StyleSheet } from "react-native"
+import {
+    StyleSheet
+} from "react-native"
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#F9FCFF',
+        backgroundColor: '#F9FCFF',
     },
-    viewTextContainer:{
+    viewTextContainer: {
         marginLeft: 25,
     },
     text1: {
@@ -15,56 +17,72 @@ export default StyleSheet.create({
         color: '#505050',
         paddingTop: 13,
     },
-    textForm:{
-        marginLeft:25, marginTop: 20
+    textForm: {
+        marginLeft: 25,
+        marginTop: 10
     },
-    titleTable:{
+    titleTable: {
         fontSize: 18,
         fontWeight: '900',
         fontFamily: 'Nunito-Bold',
     },
-    textApproved:{
+    textApproved: {
         color: 'green',
     },
-    textRejected:{
+    textRejected: {
         color: 'red',
     },
     viewPicker: {
-        marginLeft: 25, 
+        marginLeft: 25,
         marginTop: 10,
-         padding: 5, 
-         height: '6%', 
-         width: '90%', 
-         borderRadius:5, 
-         borderColor:'#505050', 
-         borderWidth:1, 
-         backgroundColor:'white'
+        padding: 5,
+        height: '6%',
+        width: '90%',
+        borderRadius: 50,
+        borderColor: '#505050',
+        borderWidth: 1,
+        backgroundColor: 'white'
     },
     viewPickerDate: {
-        marginRight: 16, 
-        marginTop: 10, 
+        marginLeft: 26,
+        marginTop: 10,
         padding: 5,
-        alignSelf: 'flex-end',
-        alignItems: 'flex-end', 
-        height: '6%', 
+        alignSelf: 'flex-start',
+        alignItems: 'flex-start',
+        height: '6%',
         width: '40%',
-        borderRadius:5, 
-        borderColor:'#505050', 
-        borderWidth:1, 
-        backgroundColor:'white'
+        borderRadius: 50,
+        borderColor: '#505050',
+        borderWidth: 1,
+        backgroundColor: 'white'
     },
-    picker:{
-        height: '100%', width: '100%', borderWidth:20, borderColor:'#505050',
-      },
-    dataTable:{
-        width: '90%',
+    picker: {
+        height: '100%',
+        width: '100%',
+        borderWidth: 10,
+        borderColor: '#505050',
+    },
+    dataTable: {
+        width: '96%',
         alignSelf: 'center',
-        marginTop:30,
+        marginTop: 5,
     },
     buttonRequest: {
-        marginTop: 40, backgroundColor: '#28A745', height: 50, width: '90%', borderRadius: 5, alignSelf: 'center'
+   
+        backgroundColor: '#28A745',
+        height: 50,
+        width: '90%',
+        borderRadius: 5,
+        alignSelf: 'center'
     },
     textbtnRequest: {
-        color: 'white', fontSize: 20, fontWeight: '600', textAlign: 'center', textAlignVertical: "center", flex: 1, fontFamily: 'Nunito-SemiBold', marginBottom: 7
+        color: 'white',
+        fontSize: 20,
+        fontWeight: '600',
+        textAlign: 'center',
+        textAlignVertical: "center",
+        flex: 1,
+        fontFamily: 'Nunito-SemiBold',
+        marginBottom: 7
     },
 });

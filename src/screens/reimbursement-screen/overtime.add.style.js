@@ -11,10 +11,10 @@ export default StyleSheet.create({
     fontWeight: '600', 
     fontFamily: 'Nunito-SemiBold', 
     color: '#505050', 
-    paddingTop: 10 
+    paddingTop: 4 
   },
   textSM: {
-    marginTop: 16,
+    marginTop: 12,
     marginBottom: 10,
     paddingLeft: 20,
     fontSize: 16,
@@ -78,10 +78,10 @@ export default StyleSheet.create({
     marginLeft: 18,
   },
   buttonSubmit: {
-    marginTop: 40, 
+    marginTop: 20, 
     marginBottom:0, 
     backgroundColor: '#1A446D', 
-    height: 50, 
+    height: 40, 
     width: '90%', 
     borderRadius: 5, 
     alignSelf: 'center',

@@ -16,7 +16,7 @@ import moment from 'moment';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Card, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import style from './medical.add.style';
+import style from './overtime.add.style';
 
 function OvertimeAdd({navigation}) {
   const [selectedValue, setSelectedValue] = useState("Java");
@@ -68,7 +68,7 @@ function OvertimeAdd({navigation}) {
          };
 
   const body = {
-      division: division,
+      division: selectedValue,
       date: date,
       description: descOvertime,
       kindofday:kindofday,
@@ -116,8 +116,11 @@ function OvertimeAdd({navigation}) {
                 setSelectedValue(itemValue)
               }>
               <Picker.Item label="" value="" />
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
+              <Picker.Item label="Brain Resources" value="Brain Resources" />
+              <Picker.Item label="Enablement" value="Enablement" />
+              <Picker.Item label="Loyalti" value="Loyalti" />
+              <Picker.Item label="Mokki Design" value="Mokki Design" />
+              <Picker.Item label="Software Taylor" value="Software Taylor" />
             </Picker>
           </View>
 

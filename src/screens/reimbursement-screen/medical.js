@@ -13,6 +13,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import style from './medical.style';
 import * as Resources from '../../config/resource';
 import {FlatList} from 'react-native-gesture-handler';
+import {useIsFocused} from '@react-navigation/native';
+import moment from 'moment';
 
 const wait = (timeout) => {
     return new Promise(resolve => {
@@ -25,6 +27,7 @@ function Medical({ navigation }) {
 
     })
     const [refreshing, setRefreshing] = useState(false);
+    const isFocused =useIsFocused();
     const [selectedValue, setSelectedValue] = useState("All");
       const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -34,9 +37,13 @@ function Medical({ navigation }) {
 
     const [projectname, setProjectname] = useState([]);
 
+      // useEffect(() => {
+      //     getProjectList();
+      // }, []);
+
       useEffect(() => {
-          getProjectList();
-      }, []);
+        getProjectList();
+      }, [isFocused]);
 
       const getProjectList = () => {
           Resources.getProjectList()
@@ -125,7 +132,7 @@ function Medical({ navigation }) {
                 style={{
                   justifyContent: 'center',
                 }}>
-                <Text style={{marginLeft: 5}}>{item.datemedical}</Text>
+                <Text style={{marginLeft: 5}}>{moment(item.date).format('MMMM D YYYY')}</Text>
                 
               </View>
                  <View

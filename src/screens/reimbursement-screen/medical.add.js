@@ -39,6 +39,7 @@ function MedicalAdd({navigation}) {
     setChooseDate(currentDate.substr(0, 15));
     setDate(selectedDate);
   };
+  const [picture, setPicture] = useState(null);
 
   const showMode = currentMode => {
     setShow(true);
@@ -66,10 +67,11 @@ function MedicalAdd({navigation}) {
          };
 
   const body = {
-      division: division,
+      division: selectedValue,
       date: date,
       descmedical: descMedical,
-      expensemedical: expenseMedical
+      expensemedical: expenseMedical,
+       
   };
 
 //   const transportRequest = () => {
@@ -91,6 +93,11 @@ function MedicalAdd({navigation}) {
     };
   const tanggal = moment(choosedate).format('MM/DD/YYYY');
 
+  const onChangePicture = e => {
+    console.log('picture: ', picture);
+    setPicture(e.target.files[0]);
+  };
+
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
@@ -110,8 +117,11 @@ function MedicalAdd({navigation}) {
                 setSelectedValue(itemValue)
               }>
               <Picker.Item label="" value="" />
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
+              <Picker.Item label="Brain Resources" value="Brain Resources" />
+              <Picker.Item label="Enablement" value="Enablement" />
+              <Picker.Item label="Loyalti" value="Loyalti" />
+              <Picker.Item label="Mokki Design" value="Mokki Design" />
+               <Picker.Item label="Software Taylor" value="Software Taylor" />
             </Picker>
           </View>
 
@@ -163,6 +173,7 @@ function MedicalAdd({navigation}) {
             multiline={true}
             maxLength={200}
             placeholder=""
+            keyboardType={'numeric'}
             style={style.inputText}
             value={expenseMedical}
             onChangeText={expenseMedical => setExpenseMedical(expenseMedical)}
@@ -176,6 +187,12 @@ function MedicalAdd({navigation}) {
               iconRight
               title="Choose File "
             />
+
+            <input
+  type="file"
+  //style={{ display: 'none' }}
+  onChange={onChangePicture}
+/>
           </View>
 
           <TouchableOpacity

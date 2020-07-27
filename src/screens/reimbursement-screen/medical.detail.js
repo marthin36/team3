@@ -5,12 +5,13 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import style from './transport.detail.style';
 import * as Resources from '../../config/resource';
 import {FlatList,} from 'react-native-gesture-handler';
+import moment from 'moment';
 function MedicalDetail({route,navigation}) {
     useEffect(() => {
 
     })
  const {division} = route.params;
-  const {datemedical} = route.params;
+  const {date} = route.params;
   const {descmedical} = route.params;
   const {expensemedical} = route.params;
   const {status} = route.params;
@@ -47,7 +48,7 @@ function MedicalDetail({route,navigation}) {
                                 Data Incurred
                             </Text>
                             <Text style={style.textDetail}>
-                                {datemedical}
+                           {moment(date).format('dddd,MMMM D YYYY')}
                             </Text>
                             <Text style={style.textTitle}>
                                 Description Request
