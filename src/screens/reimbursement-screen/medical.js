@@ -15,6 +15,14 @@ import * as Resources from '../../config/resource';
 import {FlatList} from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
 import moment from 'moment';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
+
+
+
+
+
+
 
 const wait = (timeout) => {
     return new Promise(resolve => {
@@ -26,9 +34,44 @@ function Medical({ navigation }) {
     useEffect(() => {
 
     })
+
+     const [date, setDate] = useState(new Date());
+     const [mode, setMode] = useState('date');
+     const [show, setShow] = useState(false);
+     const [choosedate, setChooseDate] = useState(new Date());
+
+     const onChange = (event, selectedDate) => {
+       const currentDate = selectedDate;
+       setShow(Platform.OS === 'ios');
+       // setChooseDate(currentDate.substr(0, 15));
+       setChooseDate(currentDate);
+       setDate(selectedDate);
+     };
+
+     const showMode = currentMode => {
+       setShow(true);
+       setMode(currentMode);
+     };
+
+     const showDatepicker = () => {
+       showMode('date');
+     };
+
+     const showTimepicker = () => {
+       showMode('time');
+     };
+const [selectedValue, setSelectedValue] = useState('');
+     const tanggal = moment(choosedate).format('MMMM YYYY');
+     const statuss = selectedValue;
+
+
+
+ console.log(statuss)
+
+
     const [refreshing, setRefreshing] = useState(false);
-    const isFocused =useIsFocused();
-    const [selectedValue, setSelectedValue] = useState("All");
+    const isFocused = useIsFocused();
+    
       const onRefresh = React.useCallback(() => {
     setRefreshing(true);
 
@@ -55,6 +98,8 @@ function Medical({ navigation }) {
                   console.log(e);
               });
       };
+
+       console.log()
     return (
         <SafeAreaView style={style.container}>
             
@@ -68,7 +113,7 @@ function Medical({ navigation }) {
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
                     <Picker.Item label="All" value="all" />
-                    <Picker.Item label="Pending" value="pending" />
+                    <Picker.Item label="Pending" value="Pending" />
                     <Picker.Item label="Approved" value="Approved" />
                     <Picker.Item label="Rejected" value="Rejected" />
                 </Picker>
@@ -84,19 +129,68 @@ function Medical({ navigation }) {
                 </Picker>
             </View>
 
-            <View style={style.viewPickerDate}>
-                <Picker
-                    selectedValue={selectedValue}
-                    style={style.picker}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="Juni 2020" value="java" />
-                    <Picker.Item label="May 2020" value="js" />
-                    <Picker.Item label="April 2020" value="js" />
-                    <Picker.Item label="March 2020" value="js" />
-                    <Picker.Item label="February 2020" value="js" />
-                    <Picker.Item label="January 2020" value="js" />
-                </Picker>
+      <View style={style.viewDate1}>
+            <View style={style.viewDate2}>
+             
+                <View style={{flex: 2, justifyContent: 'center'}}>
+                  <Text style={{marginLeft: 5, fontSize: 15}}>{tanggal}</Text>
+                </View>
+                <View style={{flex: 1, justifyContent: 'center'}}>
+                  <FontAwesome5
+                    style={style.iconDate}
+                    name="calendar"
+                    size={25}
+                    color="#1A446D"
+                    onPress={showDatepicker}
+                  />
+                </View>
+              
             </View>
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                format = "YYYY-MM-DD"
+                display="spinner"
+                onChange={onChange}
+              />
+            )}
+          </View>
+        {/* <View
+          style={{
+            height: 30,
+            width: 35,
+            borderTopLeftRadius: 5,
+            borderBottomLeftRadius: 5,
+            borderWidth: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#FFFFFF',
+          }}>
+          <TouchableOpacity onPress={showDatepicker}>
+   <Text style={style.text2}>tombol</Text>
+          </TouchableOpacity>
+        </View> */}
+
+            {/* <View
+          style={
+          style.viewPickerDate
+          }>
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={choosedate}
+              mode={mode}
+              is24Hour={true}
+              display="default"
+              onChange={onChange}
+            />
+          )}
+          <Text>{tanggal}</Text>
+        </View> */}
+      
 
             <DataTable style={style.dataTable}>
                 <DataTable.Header>
@@ -119,6 +213,9 @@ function Medical({ navigation }) {
           }
           data={projectname}
           renderItem={({item}) => (
+             moment(item.date).format('MMMM YYYY') === tanggal && 
+            item.status === statuss ?
+           
             <View
               style={{
                 marginHorizontal: 20,
@@ -161,7 +258,7 @@ function Medical({ navigation }) {
                 {/* <TouchableOpacity onPress={() => navigation.navigate('MedicalDetail', item)}>
                   <Text style={{color: '#FFFFFF'}}>Detail</Text>
                 </TouchableOpacity> */}
-                <Text
+                {/* <Text
                             onPress={() =>
                                 Alert.alert(
                                     "Action",
@@ -180,9 +277,17 @@ function Medical({ navigation }) {
                                 )
                             }>
                             Tools
-                        </Text>
+                        </Text> */}
+
+                <TouchableOpacity
+                onPress={() =>  { navigation.navigate('MedicalDetail',item) }}
+                style={style.textbtnRequests}>
+                <Text  style={style.textbtnRequests}>
+                    View Detail
+                </Text>
+            </TouchableOpacity>
               </View>
-            </View>
+            </View>: null
           )}
         />
       </View>
@@ -190,8 +295,8 @@ function Medical({ navigation }) {
 
 
                <DataTable.Pagination
-                    page={1}
-                    numberOfPages={3}
+                    page={2}
+                    numberOfPages={4}
                     onPageChange={(page) => { console.log(page); }}
                     label="1-2 of 6"
                 /></DataTable>

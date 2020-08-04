@@ -5,12 +5,15 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import style from './transport.detail.style';
 import * as Resources from '../../config/resource';
 import {FlatList,} from 'react-native-gesture-handler';
+import moment from 'moment';
+
+
 function OvertimeDetail({route,navigation}) {
     useEffect(() => {
 
     })
   const {division} = route.params;
-  const {Date} = route.params;
+  const {date} = route.params;
   const {kindofday} = route.params;
   const {description} = route.params;
   const {meals} = route.params;
@@ -22,7 +25,7 @@ function OvertimeDetail({route,navigation}) {
         <SafeAreaView style={style.container2}>
             <ScrollView>
                 <Text style={style.textareaContainer}>
-                    Data Medical Reimbursement
+                    Data Overtime Reimbursement
                 </Text>
 
                 <View style={{ flex: 1, flexDirection: 'row', alignSelf: 'center' }}>
@@ -50,7 +53,7 @@ function OvertimeDetail({route,navigation}) {
                                 Data Incurred
                             </Text>
                             <Text style={style.textDetail}>
-                                {Date}
+                                 <Text style={style.textDetail}> {moment(date).format('dddd,MMMM D YYYY')}</Text>
                             </Text>
                              <Text style={style.textTitle}>
                                Kind Of Day
@@ -68,20 +71,20 @@ function OvertimeDetail({route,navigation}) {
                                 Expense Meals
                             </Text>
                             <Text style={style.textDetail}>
-                               {meals}
+                              Rp. {meals}
                             </Text>
                             <Text style={style.textTitle}>
                                 Expense Transport
                             </Text>
                             <Text style={style.textDetail}>
-                               {transport}
+                               Rp.{transport}
                             </Text>
                           
                             <Text style={style.textTitle}>
-                                Total Expense
+                               Total Expense
                             </Text>
                             <Text style={style.textDetail}>
-                                {total}
+                               Rp. {total}
                             </Text>
                             <Text style={style.textTitle}>
                                 Status

@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   FlatList,
   TextInput,
+  Alert,
 } from 'react-native';
 import * as Resources from '../../config/resource';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -27,7 +28,7 @@ function MedicalAdd({navigation}) {
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
   const [choosedate, setChooseDate] = useState();
-
+  const [status, setStatus] = useState('Pending');
   const [division, setDivision] = useState('');
   const [descMedical, setDescMedical] = useState('');
   const [date, setDate] = useState(new Date());
@@ -39,7 +40,7 @@ function MedicalAdd({navigation}) {
     setChooseDate(currentDate.substr(0, 15));
     setDate(selectedDate);
   };
-  const [picture, setPicture] = useState(null);
+
 
   const showMode = currentMode => {
     setShow(true);
@@ -71,19 +72,9 @@ function MedicalAdd({navigation}) {
       date: date,
       descmedical: descMedical,
       expensemedical: expenseMedical,
-       
+      status:status 
   };
 
-//   const transportRequest = () => {
-//     Resources.createProject(body)
-//       .then(res => {
-//         resetForm();
-//         Alert('Transport Request Success');
-//       })
-//       .catch(err => {
-//         console.log(JSON.stringify(err));
-//       });
-//   };
 
     const resetForm = () => {
         setDivision("");
@@ -91,12 +82,30 @@ function MedicalAdd({navigation}) {
         setDatecMedical("");
         setExpenseMedical("");
     };
+
+    //Check All Form Filled
+    const submitButton = () => {
+      if (selectedValue == "" && descMedical == "" && expenseMedical == "") {
+        Alert.alert('Please Enter All Values');
+      }
+      else if(selectedValue == ""){
+        Alert.alert('Please Enter Value Division');
+      }
+      else if(descMedical == ""){
+        Alert.alert('Please Enter Description Medical');
+      }
+      else if(expenseMedical == ""){
+        Alert.alert('Please Enter Expense Medical');
+      }
+      else{
+        addMedical();
+      }
+    };
+
+
   const tanggal = moment(choosedate).format('MM/DD/YYYY');
 
-  const onChangePicture = e => {
-    console.log('picture: ', picture);
-    setPicture(e.target.files[0]);
-  };
+ 
 
   return (
     <SafeAreaView style={style.container}>
@@ -161,7 +170,7 @@ function MedicalAdd({navigation}) {
 
           <TextInput
             multiline={true}
-            maxLength={200}
+            maxLength={500}
             placeholder=""
             style={style.inputTextArea}
              value={descMedical}
@@ -170,8 +179,8 @@ function MedicalAdd({navigation}) {
 
           <Text style={style.textSM}>Total Expense *</Text>
           <TextInput
-            multiline={true}
-            maxLength={200}
+
+            maxLength={10}
             placeholder=""
             keyboardType={'numeric'}
             style={style.inputText}
@@ -187,16 +196,10 @@ function MedicalAdd({navigation}) {
               iconRight
               title="Choose File "
             />
-
-            <input
-  type="file"
-  //style={{ display: 'none' }}
-  onChange={onChangePicture}
-/>
           </View>
 
           <TouchableOpacity
-            onPress={addMedical}
+            onPress={submitButton}
             style={style.buttonSubmit}>
             <Text style={style.textbtnSubmit}>Submit</Text>
           </TouchableOpacity>

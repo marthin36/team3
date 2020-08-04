@@ -60,7 +60,7 @@ function Medical({ navigation }) {
         <SafeAreaView style={style.container}>
             
             <View style={style.viewTextContainer}>
-                <Text style={style.text1}>Medical Reimbursement</Text>
+                <Text style={style.text1}>Transport Reimbursement</Text>
             </View>
             <Text style={style.textForm}>Status</Text>
             <View style={style.viewPicker}>
@@ -90,7 +90,7 @@ function Medical({ navigation }) {
                     selectedValue={selectedValue}
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="Juni 2020" value="java" />
+                    <Picker.Item label="July 2020" value="java" />
                     <Picker.Item label="May 2020" value="js" />
                     <Picker.Item label="April 2020" value="js" />
                     <Picker.Item label="March 2020" value="js" />
@@ -162,7 +162,7 @@ function Medical({ navigation }) {
                 {/* <TouchableOpacity onPress={() => navigation.navigate('MedicalDetail', item)}>
                   <Text style={{color: '#FFFFFF'}}>Detail</Text>
                 </TouchableOpacity> */}
-                <Text
+                {/* <Text
                             onPress={() =>
                                 Alert.alert(
                                     "Action",
@@ -181,7 +181,14 @@ function Medical({ navigation }) {
                                 )
                             }>
                             Tools
-                        </Text>
+                        </Text> */}
+                   <TouchableOpacity
+                onPress={() =>  { navigation.navigate('TransportDetail',item) }}
+                style={style.textbtnRequests}>
+                <Text  style={style.textbtnRequests}>
+                    View Detail
+                </Text>
+            </TouchableOpacity>
               </View>
             </View>
           )}

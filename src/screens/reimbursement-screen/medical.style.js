@@ -50,7 +50,7 @@ export default StyleSheet.create({
         alignSelf: 'flex-start',
         alignItems: 'flex-start',
         height: '6%',
-        width: '40%',
+        width: '90%',
         borderRadius: 50,
         borderColor: '#505050',
         borderWidth: 1,
@@ -66,6 +66,12 @@ export default StyleSheet.create({
         width: '96%',
         alignSelf: 'center',
         marginTop: 5,
+    },
+    iconDate: {
+        alignSelf: 'flex-end',
+        marginRight: 7,
+        marginBottom: 0,
+        marginTop: 0
     },
     buttonRequest: {
    
@@ -85,4 +91,34 @@ export default StyleSheet.create({
         fontFamily: 'Nunito-SemiBold',
         marginBottom: 7
     },
+     textbtnRequests: {
+         color: 'white',
+         fontSize: 9,
+         fontWeight: '600',
+         textAlign: 'center',
+         textAlignVertical: "center",
+         
+         fontFamily: 'Nunito-SemiBold',
+         
+     },
+     viewDate1: {
+  marginLeft: 25,
+      marginTop: 10,
+      padding: 5,
+      height: '6%',
+      width: '90%',
+      borderRadius: 50,
+      borderColor: '#505050',
+      borderWidth: 1,
+      backgroundColor: 'white'
+  },
+  viewDate2: {
+    flexDirection: 'row', 
+    flex: 1,
+     marginLeft:2, 
+     width: '100%',
+  },
+  
+  
+  
 });

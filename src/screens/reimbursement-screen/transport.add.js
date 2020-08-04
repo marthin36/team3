@@ -31,7 +31,7 @@ function TransportAdd({navigation}) {
   const [departureLocation, setDepartureLocation] = useState('');
   const [destinationLocation, setDestinationLocation] = useState('');
   const [totalExpense, setTotalExpense] = useState('');
-   const [division, setDivision] = useState('');
+ const [status, setStatus] = useState('Pending');
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate.toString();
@@ -56,6 +56,7 @@ function TransportAdd({navigation}) {
     departureLocation: departureLocation,
     destinationLocation: destinationLocation,
     totalExpense: totalExpense,
+    status:status,
   };
 
   const createTransport = () => {

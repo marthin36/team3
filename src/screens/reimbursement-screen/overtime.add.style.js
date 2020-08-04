@@ -14,7 +14,7 @@ export default StyleSheet.create({
     paddingTop: 4 
   },
   textSM: {
-    marginTop: 12,
+    marginTop: 2,
     marginBottom: 10,
     paddingLeft: 20,
     fontSize: 16,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     fontWeight: '300', 
     fontFamily: 'Nunito', 
     marginLeft: 22, 
-    marginTop: 10
+    marginTop: 2
   },
   TextDate: {
     fontWeight: '300', 
@@ -65,7 +65,7 @@ export default StyleSheet.create({
     borderWidth: 1, 
     borderRadius: 5, 
     width: '90%', 
-    height: '15%', 
+    height: '12%', 
     backgroundColor: 'white', 
     fontSize: 18, 
     borderColor: '#505050', 
@@ -78,7 +78,7 @@ export default StyleSheet.create({
     marginLeft: 18,
   },
   buttonSubmit: {
-    marginTop: 20, 
+    marginTop: 14, 
     marginBottom:0, 
     backgroundColor: '#1A446D', 
     height: 40, 
@@ -109,7 +109,7 @@ export default StyleSheet.create({
     flexDirection: 'row', 
     flex: 1, 
     marginLeft: 18,
-    width: '80%',
+    width: '50%',
   },
   viewDate3: {
     height: '100%', 
@@ -131,6 +131,12 @@ export default StyleSheet.create({
     alignSelf: 'flex-end', 
     marginRight: 7, 
     marginBottom: 10, 
+    marginTop: 8
+  },
+  iconDate2: {
+    alignSelf: 'flex-end',
+    marginRight: 1,
+    marginBottom: 10,
     marginTop: 8
   }
 });

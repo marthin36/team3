@@ -115,7 +115,7 @@ export const createOvertime = (body) => {
     console.log(JSON.stringify(body));
 
     api
-      .post(API.CREATE_MEDICAL, JSON.stringify(body))
+      .post(API.CREATE_OVERTIME, JSON.stringify(body))
       .then(response => {
         if (response.ok) resolve(response);
         else reject(response);

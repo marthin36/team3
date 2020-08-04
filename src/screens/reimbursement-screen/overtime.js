@@ -14,6 +14,7 @@ import style from './overtime.style';
 import * as Resources from '../../config/resource';
 import {FlatList} from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
+import moment from 'moment';
 
 const wait = (timeout) => {
     return new Promise(resolve => {
@@ -84,7 +85,7 @@ function Medical({ navigation }) {
                     selectedValue={selectedValue}
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="Juni 2020" value="java" />
+                    <Picker.Item label="July 2020" value="java" />
                     <Picker.Item label="May 2020" value="js" />
                     <Picker.Item label="April 2020" value="js" />
                     <Picker.Item label="March 2020" value="js" />
@@ -127,7 +128,7 @@ function Medical({ navigation }) {
                 style={{
                   justifyContent: 'center',
                 }}>
-                <Text style={{marginLeft: 5}}>{item.Date}</Text>
+                 <Text style={{marginLeft: 5}}>{moment(item.date).format('MMMM D YYYY')}</Text>
                 
               </View>
                  <View
@@ -156,7 +157,7 @@ function Medical({ navigation }) {
                 {/* <TouchableOpacity onPress={() => navigation.navigate('MedicalDetail', item)}>
                   <Text style={{color: '#FFFFFF'}}>Detail</Text>
                 </TouchableOpacity> */}
-                <Text
+                {/* <Text
                             onPress={() =>
                                 Alert.alert(
                                     "Action",
@@ -175,7 +176,14 @@ function Medical({ navigation }) {
                                 )
                             }>
                             Tools
-                        </Text>
+                        </Text> */}
+                     <TouchableOpacity
+                onPress={() =>  { navigation.navigate('OvertimeDetail',item) }}
+                style={style.textbtnRequests}>
+                <Text  style={style.textbtnRequests}>
+                    View Detail
+                </Text>
+            </TouchableOpacity>
               </View>
             </View>
           )}

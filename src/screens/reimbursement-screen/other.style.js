@@ -85,8 +85,8 @@ export default StyleSheet.create({
     marginTop: 10,
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
-    height: 50,
-    width: '40%',
+    height: '6%',
+    width: '90%',
     borderRadius: 50,
     borderColor: '#505050',
     borderWidth: 1,
@@ -121,5 +121,15 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: 'Nunito-SemiBold',
     marginBottom: 7,
+  },
+  textbtnRequests: {
+    color: 'white',
+    fontSize: 9,
+    fontWeight: '600',
+    textAlign: 'center',
+    textAlignVertical: "center",
+
+    fontFamily: 'Nunito-SemiBold',
+
   },
 });

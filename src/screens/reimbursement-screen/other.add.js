@@ -28,6 +28,10 @@ function OtherAdd({navigation}) {
   const [choosedate, setChooseDate] = useState();
   const [description, setDescription] = useState('');
   const [totalExpense, setTotalExpense] = useState('');
+    const [reimbursementtype, setReimbursement] = useState('');
+    const [status, setStatus] = useState('Pending');
+     const [division, setDivision] = useState('Pending');
+  
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate.toString();
@@ -49,6 +53,9 @@ function OtherAdd({navigation}) {
     date: date,
     description: description,
     totalExpense: totalExpense,
+    status:status,
+    division:selectedValue,
+    reimbusementtype: reimbursementtype,
   };
 
   const createOther = () => {
@@ -94,8 +101,11 @@ function OtherAdd({navigation}) {
                 setSelectedValue(itemValue)
               }>
               <Picker.Item label="" value="" />
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
+              <Picker.Item label="Brain Resources" value="Brain Resources" />
+              <Picker.Item label="Enablement" value="Enablement" />
+              <Picker.Item label="Loyalti" value="Loyalti" />
+              <Picker.Item label="Mokki Design" value="Mokki Design" />
+               <Picker.Item label="Software Taylor" value="Software Taylor" />
             </Picker>
           </View>
 
@@ -135,14 +145,15 @@ function OtherAdd({navigation}) {
           <View style={style.viewPicker}>
             <Picker
               mode={'dropdown'}
-              selectedValue={selectedValue}
+              selectedValue={reimbursementtype}
               style={style.picker}
               onValueChange={(itemValue, itemIndex) =>
-                setSelectedValue(itemValue)
+                setReimbursement(itemValue)
               }>
               <Picker.Item label="" value="" />
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
+               <Picker.Item label="Hotels" value="Hotel" />
+              <Picker.Item label="Loundry" value="Loundry" />
+              <Picker.Item label="Kouta Internet" value="Kouta Internet" />
             </Picker>
           </View>
 

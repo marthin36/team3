@@ -37,7 +37,7 @@ function Other({ navigation }) {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
-    const [date, setDate] = useState([]);
+    const [dates, setDate] = useState([]);
 
       // useEffect(() => {
       //     getProjectList();
@@ -93,7 +93,7 @@ function Other({ navigation }) {
                     selectedValue={selectedValue}
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="Juni 2020" value="java" />
+                    <Picker.Item label="July 2020" value="java" />
                     <Picker.Item label="May 2020" value="js" />
                     <Picker.Item label="April 2020" value="js" />
                     <Picker.Item label="March 2020" value="js" />
@@ -110,34 +110,92 @@ function Other({ navigation }) {
                     <DataTable.Title numeric><Text style={style.titleTable}>Action</Text></DataTable.Title>
                 </DataTable.Header>
 
-               <FlatList
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }
-            data={date}
-            renderItem={({item}) => (
-              <View style={style.containerTable}>
-                <View style={style.columnDate}>
-                  <Text style={style.textTable}>{moment(item.date).format(' MMMM D YYYY')}</Text>
-                </View>
-                <View style={style.columnCategory}>
-                  <Text style={style.textTable}>Other</Text>
-                </View>
-                <View style={style.columnStatus}>
-                  <Text style={style.textPending}>Pending</Text>
-                </View>
-                <View style={style.columnAction}>
-                  <Button
-                    icon={<Icon name="long-arrow-right" size={18} color="white" />}
-                    iconRight
-                    onPress={() => {
-                      navigation.navigate('OtherDetail');
-                    }}
-                  />
-                </View>
+           <View
+        style={{
+       
+        }}>
+        <FlatList
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          data={dates}
+          renderItem={({item}) => (
+            <View
+              style={{
+                marginHorizontal: 20,
+                marginVertical: 2,
+                height: 25,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                borderBottomWidth: 1,
+              }}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                }}>
+                 <Text style={{marginLeft: 5}}>{moment(item.date).format('MMMM D YYYY')}</Text>
+                
               </View>
-            )}
-          />
+                 <View
+                style={{
+                  justifyContent: 'center',
+                }}>
+                <Text style={{marginLeft: 5}}>Other</Text>
+                
+              </View>
+                <View
+                style={{
+                  justifyContent: 'center',
+                }}>
+                <Text style={{marginLeft: 5}}>{item.status}</Text>
+                
+              </View>
+              <View
+                style={{
+                  width: 55,
+                  height: 20,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: '#22b0f7'
+                }
+                }>
+                {/* <TouchableOpacity onPress={() => navigation.navigate('MedicalDetail', item)}>
+                  <Text style={{color: '#FFFFFF'}}>Detail</Text>
+                </TouchableOpacity> */}
+                {/* <Text
+                            onPress={() =>
+                                Alert.alert(
+                                    "Action",
+                                    "",
+                                    [
+                                        {
+                                            text: "View Detail ",
+                                            onPress: () => { navigation.navigate('OtherDetail',item) },
+                                            style: "cancel",
+                                            color: '#ffffff'
+                                        
+                                        },
+                                        { text: "Print", onPress: () => console.log("Print") }
+                                    ],
+                                    { cancelable: false }
+                                )
+                            }>
+                            Tools
+                        </Text> */}
+                   <TouchableOpacity
+                onPress={() =>  { navigation.navigate('OtherDetail',item) }}
+                style={style.textbtnRequests}>
+                <Text  style={style.textbtnRequests}>
+                    View Detail
+                </Text>
+            </TouchableOpacity>
+              </View>
+            </View>
+          )}
+        />
+      </View>
+      
+
 
          
 

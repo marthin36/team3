@@ -28,6 +28,7 @@ import OvertimeFormScreen from '../screens/reimbursement-screen/overtime.form'
 import TransportDetailScreen from '../screens/reimbursement-screen/transport.detail'
 import OvertimeDetailScreen from '../screens/reimbursement-screen/overtime.detail'
 import MedicalDetailScreen from '../screens/reimbursement-screen/medical.detail'
+import OtherDetailScreen from '../screens/reimbursement-screen/other.detail'
 import OtherAddScreen from '../screens/reimbursement-screen/other.add';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -130,8 +131,10 @@ function MyStack() {
       <Stack.Screen name="TransportDetail" component={TransportDetailScreen} options={{headerTitle:'Transport Detail',}}/>  
       <Stack.Screen name="OvertimeDetail" component={OvertimeDetailScreen} options={{headerTitle:'Overtime Detail',}}/>  
       <Stack.Screen name="MedicalDetail" component={MedicalDetailScreen} options={{headerTitle:'Medical Detail',}}/>  
+      <Stack.Screen name="OtherDetail" component={OtherDetailScreen} options={{headerTitle:'Other Detail',}}/>  
       <Stack.Screen name="Other" component={OtherScreen} options={{headerTitle:'Other',}}/>  
       <Stack.Screen name="OtherAdd" component={OtherAddScreen} options={{headerTitle:'Other Request',}}/> 
+      
     </Stack.Navigator>
   );
 }

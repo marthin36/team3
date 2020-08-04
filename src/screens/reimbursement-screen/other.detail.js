@@ -14,8 +14,17 @@ import {Card} from 'react-native-elements';
 import style from './other.detail.style';
 import moment from 'moment';
 
-function OtherDetail() {
+function OtherDetail({route, navigation}) {
   useEffect(() => {});
+
+
+   const {division} = route.params;
+  const {date} = route.params;
+  const {description} = route.params;
+  const {reimbusementtype} = route.params;
+  const {totalExpense} = route.params;
+  const {status} = route.params;
+  const {id} = route.params;
 
   return (
     <SafeAreaView style={style.container2}>
@@ -27,28 +36,28 @@ function OtherDetail() {
             <View style={style.viewText}>
               <Text style={style.textTitle}>Request ID # :</Text>
               <Text style={style.textDetail}>
-                00101 / Other Reimbursement
+            {id}
               </Text>
               <Text style={style.textTitle}>Employee Name</Text>
               <Text style={style.textDetail}>Feber Sianipar</Text>
 
               <Text style={style.textTitle}>Division</Text>
-              <Text style={style.textDetail}>Software Tailor</Text>
+              <Text style={style.textDetail}>{division}</Text>
 
               <Text style={style.textTitle}>Date</Text>
-              <Text style={style.textDetail}>June 19, 2020</Text>
+              <Text style={style.textDetail}> {moment(date).format('dddd,MMMM D YYYY')}</Text>
 
               <Text style={style.textTitle}>Reimbursement Type</Text>
-              <Text style={style.textDetail}>Hotel</Text>
+              <Text style={style.textDetail}>{reimbusementtype}</Text>
 
               <Text style={style.textTitle}>Description Request</Text>
-              <Text style={style.textDetail}>Berlibur</Text>
+              <Text style={style.textDetail}>{description}</Text>
 
               <Text style={style.textTitle}>Total Expensi</Text>
-              <Text style={style.textDetail}>Rp. 1.500.000</Text>
+              <Text style={style.textDetail}> Rp. {totalExpense}</Text>
 
               <Text style={style.textTitle}>Status</Text>
-              <Text style={style.textPending}>Pending</Text>
+              <Text style={style.textPending}>{status}</Text>
             </View>
           </Card>
         </View>
