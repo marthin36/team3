@@ -47,6 +47,10 @@ export default StyleSheet.create({
   textDetail: {
     fontFamily: 'Nunito-Bold',
   },
+  textDetails: {
+    fontFamily: 'Nunito-Bold',
+    color:'blue'
+  },
   textApproved: {
     fontFamily: 'Nunito-Bold',
     color: 'green',
@@ -58,5 +62,10 @@ export default StyleSheet.create({
   textPending: {
     fontFamily: 'Nunito-Bold', 
     color: '#187bcd'
+  },
+  btn: {
+    fontFamily: 'Nunito-Bold', 
+    color: '#187bcd',
+    width:'90%'
   },
 });

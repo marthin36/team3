@@ -17,6 +17,7 @@ import {useIsFocused} from '@react-navigation/native';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-elements';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const wait = (timeout) => {
     return new Promise(resolve => {
@@ -24,20 +25,51 @@ const wait = (timeout) => {
     });
 };
 function Other({ navigation }) {
+useEffect(() => {
 
-    useEffect(() => {
+})
 
-    })
+const [date, setDate] = useState(new Date());
+const [mode, setMode] = useState('date');
+const [show, setShow] = useState(false);
+const [choosedate, setChooseDate] = useState(new Date());
+
+const onChange = (event, selectedDate) => {
+  const currentDate = selectedDate;
+  setShow(Platform.OS === 'ios');
+  // setChooseDate(currentDate.substr(0, 15));
+  setChooseDate(currentDate);
+  setDate(selectedDate);
+};
+
+const showMode = currentMode => {
+  setShow(true);
+  setMode(currentMode);
+};
+
+const showDatepicker = () => {
+  showMode('date');
+};
+
+const showTimepicker = () => {
+  showMode('time');
+};
+const [selectedValue, setSelectedValue] = useState('Pending');
+const [selectedValuess, setSelectedValuess] = useState('');
+const tanggal = moment(choosedate).format('MMMM YYYY');
+const statuss = selectedValue;
+
     const [refreshing, setRefreshing] = useState(false);
     const isFocused =useIsFocused();
-    const [selectedValue, setSelectedValue] = useState("All");
+   
       const onRefresh = React.useCallback(() => {
     setRefreshing(true);
 
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
-    const [dates, setDate] = useState([]);
+    const [dates, setDates] = useState([]);
+    const abortController = new AbortController()
 
       // useEffect(() => {
       //     getProjectList();
@@ -45,19 +77,21 @@ function Other({ navigation }) {
 
       useEffect(() => {
         getOthers();
+     
       }, [isFocused]);
 
      const getOthers = () => {
        resources.getOthers()
          .then(r => {
            console.log(r);
-           setDate(r);
+           setDates(r);
          })
          .catch(e => {
            console.log(e);
          });
+         
      };
-
+    console.log(selectedValue)
      
     return (
         <SafeAreaView style={style.container}>
@@ -70,9 +104,10 @@ function Other({ navigation }) {
                 <Picker
                     selectedValue={selectedValue}
                     style={style.picker}
+                    
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="All" value="all" />
-                    <Picker.Item label="Pending" value="pending" />
+                   
+                    <Picker.Item label="Pending" value="Pending" />
                     <Picker.Item label="Approved" value="Approved" />
                     <Picker.Item label="Rejected" value="Rejected" />
                 </Picker>
@@ -80,15 +115,44 @@ function Other({ navigation }) {
             <Text style={style.textForm}>Sort By</Text>
             <View style={style.viewPicker}>
                 <Picker
-                    selectedValue={selectedValue}
+                    selectedValue={selectedValuess}
                     style={style.picker}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => setSelectedValuess(itemValue)}>
                     <Picker.Item label="Newest to Oldest" value="nto" />
                     <Picker.Item label="Oldest to Newest" value="otn" />
                 </Picker>
             </View>
 
-            <View style={style.viewPickerDate}>
+            <View style={style.viewDate1}>
+            <View style={style.viewDate2}>
+             
+                <View style={{flex: 2, justifyContent: 'center'}}>
+                  <Text style={{marginLeft: 5, fontSize: 15}}>{tanggal}</Text>
+                </View>
+                <View style={{flex: 1, justifyContent: 'center'}}>
+                  <FontAwesome5
+                    style={style.iconDate}
+                    name="calendar"
+                    size={25}
+                    color="#1A446D"
+                    onPress={showDatepicker}
+                  />
+                </View>
+              
+            </View>
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                format = "YYYY-MM-DD"
+                display="spinner"
+                onChange={onChange}
+              />
+            )}
+          </View>
+            {/* <View style={style.viewPickerDate}>
                 <Picker
                     selectedValue={selectedValue}
                     style={style.picker}
@@ -100,7 +164,7 @@ function Other({ navigation }) {
                     <Picker.Item label="February 2020" value="js" />
                     <Picker.Item label="January 2020" value="js" />
                 </Picker>
-            </View>
+            </View> */}
 
             <DataTable style={style.dataTable}>
                 <DataTable.Header>
@@ -119,7 +183,12 @@ function Other({ navigation }) {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
           data={dates}
+             ListEmptyComponent={<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={style.title}>Anda Blom Ada Request Other Reimbursement</Text>
+    </View>}
           renderItem={({item}) => (
+              moment(item.date).format('MMMM YYYY') === tanggal &&
+                item.status === statuss ?
             <View
               style={{
                 marginHorizontal: 20,
@@ -190,8 +259,9 @@ function Other({ navigation }) {
                 </Text>
             </TouchableOpacity>
               </View>
-            </View>
+            </View>: null
           )}
+        
         />
       </View>
       

@@ -15,7 +15,7 @@ import * as Resources from '../../config/resource';
 import {FlatList} from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
 import moment from 'moment';
-
+import DateTimePicker from '@react-native-community/datetimepicker';
 const wait = (timeout) => {
     return new Promise(resolve => {
         setTimeout(resolve, timeout);
@@ -26,9 +26,42 @@ function Medical({ navigation }) {
     useEffect(() => {
 
     })
+
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [choosedate, setChooseDate] = useState(new Date());
+
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate;
+      setShow(Platform.OS === 'ios');
+      // setChooseDate(currentDate.substr(0, 15));
+      setChooseDate(currentDate);
+      setDate(selectedDate);
+    };
+
+    const showMode = currentMode => {
+      setShow(true);
+      setMode(currentMode);
+    };
+
+    const showDatepicker = () => {
+      showMode('date');
+    };
+
+    const showTimepicker = () => {
+      showMode('time');
+    };
+    const [selectedValue, setSelectedValue] = useState('Pending');
+    const [selectedValuess, setSelectedValuess] = useState('');
+    const tanggal = moment(choosedate).format('MMMM YYYY');
+    const statuss = selectedValue;
+
+
+
     const [refreshing, setRefreshing] = useState(false);
     const isFocused = useIsFocused();
-    const [selectedValue, setSelectedValue] = useState("All");
+   
       const onRefresh = React.useCallback(() => {
     setRefreshing(true);
 
@@ -63,8 +96,8 @@ function Medical({ navigation }) {
                     selectedValue={selectedValue}
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="All" value="all" />
-                    <Picker.Item label="Pending" value="pending" />
+                    {/* <Picker.Item label="All" value=" " /> */}
+                    <Picker.Item label="Pending" value="Pending" />
                     <Picker.Item label="Approved" value="Approved" />
                     <Picker.Item label="Rejected" value="Rejected" />
                 </Picker>
@@ -72,15 +105,44 @@ function Medical({ navigation }) {
             <Text style={style.textForm}>Sort By</Text>
             <View style={style.viewPicker}>
                 <Picker
-                    selectedValue={selectedValue}
+                    selectedValue={selectedValuess}
                     style={style.picker}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => setSelectedValuess(itemValue)}>
                     <Picker.Item label="Newest to Oldest" value="nto" />
                     <Picker.Item label="Oldest to Newest" value="otn" />
                 </Picker>
             </View>
+             <View style={style.viewDate1}>
+            <View style={style.viewDate2}>
+             
+                <View style={{flex: 2, justifyContent: 'center'}}>
+                  <Text style={{marginLeft: 5, fontSize: 15}}>{tanggal}</Text>
+                </View>
+                <View style={{flex: 1, justifyContent: 'center'}}>
+                  <FontAwesome5
+                    style={style.iconDate}
+                    name="calendar"
+                    size={25}
+                    color="#1A446D"
+                    onPress={showDatepicker}
+                  />
+                </View>
+              
+            </View>
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                format = "YYYY-MM-DD"
+                display="spinner"
+                onChange={onChange}
+              />
+            )}
+          </View>
 
-            <View style={style.viewPickerDate}>
+            {/* <View style={style.viewPickerDate}>
                 <Picker
                     selectedValue={selectedValue}
                     style={style.picker}
@@ -92,7 +154,7 @@ function Medical({ navigation }) {
                     <Picker.Item label="February 2020" value="js" />
                     <Picker.Item label="January 2020" value="js" />
                 </Picker>
-            </View>
+            </View> */}
 
             <DataTable style={style.dataTable}>
                 <DataTable.Header>
@@ -115,6 +177,8 @@ function Medical({ navigation }) {
           }
           data={projectname}
           renderItem={({item}) => (
+              moment(item.date).format('MMMM YYYY') === tanggal &&
+                item.status === statuss ?
             <View
               style={{
                 marginHorizontal: 20,
@@ -185,7 +249,7 @@ function Medical({ navigation }) {
                 </Text>
             </TouchableOpacity>
               </View>
-            </View>
+            </View>: null
           )}
         />
       </View>

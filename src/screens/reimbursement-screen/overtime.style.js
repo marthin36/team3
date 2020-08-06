@@ -22,7 +22,7 @@ export default StyleSheet.create({
         marginTop: 10
     },
     titleTable: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: '900',
         fontFamily: 'Nunito-Bold',
     },
@@ -69,11 +69,14 @@ export default StyleSheet.create({
     },
     buttonRequest: {
    
-        backgroundColor: '#28A745',
-        height: 50,
-        width: '90%',
-        borderRadius: 5,
-        alignSelf: 'center'
+         backgroundColor: '#28A745',
+             height: 50,
+             width: '90%',
+             borderRadius: 5,
+             alignSelf: 'center',
+             position: 'absolute',
+             bottom: 6,
+             left: 19,
     },
     textbtnRequest: {
         color: 'white',
@@ -95,4 +98,27 @@ export default StyleSheet.create({
         fontFamily: 'Nunito-SemiBold',
 
     },
+       viewDate1: {
+               marginLeft: 25,
+               marginTop: 10,
+               padding: 5,
+               height: '6%',
+               width: '90%',
+               borderRadius: 50,
+               borderColor: '#505050',
+               borderWidth: 1,
+               backgroundColor: 'white'
+           },
+           viewDate2: {
+               flexDirection: 'row',
+               flex: 1,
+               marginLeft: 2,
+               width: '100%',
+           },
+           iconDate: {
+               alignSelf: 'flex-end',
+               marginRight: 7,
+               marginBottom: 0,
+               marginTop: 0
+           },
 });

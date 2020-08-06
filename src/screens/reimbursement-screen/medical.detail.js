@@ -66,7 +66,7 @@ function MedicalDetail({route,navigation}) {
                             <Text style={style.textTitle}>
                                 Status
                             </Text>
-                            <Text style={style.textDetail}>
+                            <Text style={style.textDetails}>
                                 {status}
                             </Text>
                         </View>

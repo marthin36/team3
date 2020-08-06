@@ -60,7 +60,8 @@ function Medical({ navigation }) {
      const showTimepicker = () => {
        showMode('time');
      };
-const [selectedValue, setSelectedValue] = useState('');
+const [selectedValue, setSelectedValue] = useState('Pending');
+const [selectedValuess, setSelectedValuess] = useState('');
      const tanggal = moment(choosedate).format('MMMM YYYY');
      const statuss = selectedValue;
 
@@ -112,7 +113,7 @@ const [selectedValue, setSelectedValue] = useState('');
                     selectedValue={selectedValue}
                     style={style.picker}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-                    <Picker.Item label="All" value="all" />
+                    {/* <Picker.Item label="All" value=" " /> */}
                     <Picker.Item label="Pending" value="Pending" />
                     <Picker.Item label="Approved" value="Approved" />
                     <Picker.Item label="Rejected" value="Rejected" />
@@ -121,9 +122,9 @@ const [selectedValue, setSelectedValue] = useState('');
             <Text style={style.textForm}>Sort By</Text>
             <View style={style.viewPicker}>
                 <Picker
-                    selectedValue={selectedValue}
+                    selectedValue={selectedValuess}
                     style={style.picker}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+                    onValueChange={(itemValue, itemIndex) => setSelectedValuess(itemValue)}>
                     <Picker.Item label="Newest to Oldest" value="nto" />
                     <Picker.Item label="Oldest to Newest" value="otn" />
                 </Picker>

@@ -22,7 +22,7 @@ export default StyleSheet.create({
         marginTop: 10
     },
     titleTable: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: '900',
         fontFamily: 'Nunito-Bold',
     },
@@ -79,7 +79,10 @@ export default StyleSheet.create({
         height: 50,
         width: '90%',
         borderRadius: 5,
-        alignSelf: 'center'
+        alignSelf: 'center',
+         position: 'absolute',
+             bottom: 6,
+             left: 19,
     },
     textbtnRequest: {
         color: 'white',

@@ -29,7 +29,7 @@ function MedicalAdd({navigation}) {
   const [show, setShow] = useState(false);
   const [choosedate, setChooseDate] = useState();
   const [status, setStatus] = useState('Pending');
-  const [division, setDivision] = useState('');
+  const [division, setDivision] = useState('Brain Resource');
   const [descMedical, setDescMedical] = useState('');
   const [date, setDate] = useState(new Date());
   const [expenseMedical, setExpenseMedical] = useState('');

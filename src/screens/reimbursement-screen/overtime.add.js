@@ -351,7 +351,7 @@ function OvertimeAdd({navigation}) {
             keyboardType='numeric'
             style={style.inputText}
             value={meals}
-             onChange={v => console.log(v)}
+             onChangeText={meals => setMeals(meals)}
           />
           <Text style={style.textSM}>Expense Transport *</Text>
           <TextInput
@@ -359,7 +359,7 @@ function OvertimeAdd({navigation}) {
             keyboardType='numeric'
             style={style.inputText}
            value={transport}
-        onChange={v => console.log(v)}
+     onChangeText={transport => setTransport(transport)}
           />
           
 
@@ -378,8 +378,9 @@ function OvertimeAdd({navigation}) {
           
             // keyboardType={'numeric'}
             style={style.inputText}
-            value = {(transport+meals)}
             
+            value={( parseInt(transport || 0, 10) + parseInt(meals || 0, 10) ).toString()}
+            onChangeText={total => setTotal(total)}
           />
 
           <TouchableOpacity
