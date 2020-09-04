@@ -3,7 +3,7 @@
 ![Image of Eworkpalce](/image/ss1.png)>![Image of Eworkpalce](/image/ss2.png)
 ![Image of Eworkpalce](/image/ss3.png)>![Image of Eworkpalce](/image/ss4.png)
 ![Image of Eworkpalce](/image/ss5.png) <br/>
-![m](https://user-images.githubusercontent.com/49092089/92187280-89e78780-ee83-11ea-8c58-eda5d9591b2c.jpeg width="250px')
+![m](https://user-images.githubusercontent.com/49092089/92187280-89e78780-ee83-11ea-8c58-eda5d9591b2c.jpeg width="250")
 ![Medical Add](https://user-images.githubusercontent.com/49092089/92187281-8bb14b00-ee83-11ea-9d71-2eee80a21ed7.jpeg)
 ![Medical Detail](https://user-images.githubusercontent.com/49092089/92187282-8c49e180-ee83-11ea-97dd-8451480c16e1.jpeg)
 ![Medical Req](https://user-images.githubusercontent.com/49092089/92187284-8d7b0e80-ee83-11ea-8751-dc3e86cdfd36.jpeg)
