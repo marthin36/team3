@@ -4,23 +4,16 @@
 ![Image of Eworkpalce](/image/ss3.png)>![Image of Eworkpalce](/image/ss4.png)
 ![Image of Eworkpalce](/image/ss5.png) <br/>
 
-<img src="https://user-images.githubusercontent.com/49092089/92187280-89e78780-ee83-11ea-8c58-eda5d9591b2c.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187281-8bb14b00-ee83-11ea-9d71-2eee80a21ed7.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187282-8c49e180-ee83-11ea-97dd-8451480c16e1.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187284-8d7b0e80-ee83-11ea-8751-dc3e86cdfd36.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187285-8e13a500-ee83-11ea-8abb-ed9b7fcb7088.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187289-8f44d200-ee83-11ea-8b67-1f89f16bcc93.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187290-8fdd6880-ee83-11ea-9ad1-3ed0a55ebc8e.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187293-910e9580-ee83-11ea-892d-c7177374dd87.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187298-923fc280-ee83-11ea-8ff8-c1dd40da298d.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187299-9370ef80-ee83-11ea-8734-4ea9e5406df0.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187300-94098600-ee83-11ea-9d1f-12ee93dad845.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187304-953ab300-ee83-11ea-9ceb-8d1ce7c73098.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187306-95d34980-ee83-11ea-924c-6a4fd50a81d2.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187311-979d0d00-ee83-11ea-8fa8-a7af1e960472.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187317-99ff6700-ee83-11ea-9032-86770bb819cb.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187313-98ce3a00-ee83-11ea-893c-7f83575b443a.jpeg" width="420">
-<img src="https://user-images.githubusercontent.com/49092089/92187315-9966d080-ee83-11ea-9617-263c08fd0a6e.jpeg" width="420">
+<img src="https://user-images.githubusercontent.com/49092089/92187280-89e78780-ee83-11ea-8c58-eda5d9591b2c.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187281-8bb14b00-ee83-11ea-9d71-2eee80a21ed7.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187282-8c49e180-ee83-11ea-97dd-8451480c16e1.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187284-8d7b0e80-ee83-11ea-8751-dc3e86cdfd36.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187285-8e13a500-ee83-11ea-8abb-ed9b7fcb7088.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187289-8f44d200-ee83-11ea-8b67-1f89f16bcc93.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187290-8fdd6880-ee83-11ea-9ad1-3ed0a55ebc8e.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187293-910e9580-ee83-11ea-892d-c7177374dd87.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187298-923fc280-ee83-11ea-8ff8-c1dd40da298d.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187299-9370ef80-ee83-11ea-8734-4ea9e5406df0.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187300-94098600-ee83-11ea-9d1f-12ee93dad845.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187304-953ab300-ee83-11ea-9ceb-8d1ce7c73098.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187306-95d34980-ee83-11ea-924c-6a4fd50a81d2.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187311-979d0d00-ee83-11ea-8fa8-a7af1e960472.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187317-99ff6700-ee83-11ea-9032-86770bb819cb.jpeg" width="400"><img src="https://user-images.githubusercontent.com/49092089/92187313-98ce3a00-ee83-11ea-893c-7f83575b443a.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/49092089/92187315-9966d080-ee83-11ea-9617-263c08fd0a6e.jpeg" width="400">
 
 E workpalce is a mobile application that is made for employee of moonlay technologies. The features contained in this application are: <br/>
 1. Login and logout <br/>
